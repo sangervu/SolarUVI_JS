@@ -4,6 +4,8 @@ function myFunctions() {
 
     // alustetaan sijainti (sijainnin voi myös antaa käsin)
     //getLocation();
+    document.querySelector('#find-me').addEventListener('click', getLocation);
+    document.querySelector('#new-location').addEventListener('click', newLocation);
 
     //Auringon paikkaan liittyvät tulosteet
     document.getElementById("demo1").innerHTML = "current sun elevation = " + solarPositionLocal.currentSunElevation;

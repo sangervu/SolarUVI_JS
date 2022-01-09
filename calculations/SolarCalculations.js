@@ -24,6 +24,8 @@ var mMaxAnnual = 1. / Math.cos(Math.asin(6371. / 6393. * Math.sin((Math.PI / 2 -
 var latitude = toRadians(locations.latitude);
 var delta = toRadians(solarPositionDeg.delta);
 
+/******** Solar UVI calculation**********/
+
 var uvIndex = Math.round(10 * Math.pow(Math.cos(Math.PI / 2 - currentSunElevation), a) * Math.exp(b + c * m + d * m * m) / 25.) / 10.;
 if (isNaN(uvIndex)) {
     uvIndex = 0;
