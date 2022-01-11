@@ -31,8 +31,8 @@ function showPosition(position) {
 function newLocation() {
 
   const mapLink = document.querySelector('#map-link');
-  var x = document.getElementById("lat").value;
-  var y = document.getElementById("lon").value;
+  var x = parseFloat(document.getElementById("lat").value);
+  var y = parseFloat(document.getElementById("lon").value);
 
   locations.setLatitude(x);
   locations.setLongitude(y);
