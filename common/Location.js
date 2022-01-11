@@ -36,7 +36,6 @@ function newLocation() {
 
   locations.setLatitude(x);
   locations.setLongitude(y);
-
   myFunctions();
 
   document.getElementById("demo20").innerHTML = "Latitude: " + x +
