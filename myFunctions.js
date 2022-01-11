@@ -19,8 +19,8 @@ function myFunctions() {
     //UVI säteilyyn liittyvät tulosteet
     document.getElementById("demo5").innerHTML = "UVI current = " + sol.solarCalculations.uvIndex;
     document.getElementById("demo6").innerHTML = "UVI max = " + sol.solarCalculations.uvIndexMax;
-    document.getElementById("demo7").innerHTML = "UVI warning period = " + sol.solarCalculations.uvIndexOverThree;
-    document.getElementById("demo8").innerHTML = "UVI warning period end = " + sol.solarCalculations.uvIndexEnd;
+    document.getElementById("demo7").innerHTML = "UVI warning period length = " + timeHour(sol.solarCalculations.uvIndexOverThree) + " hours " + timeMinute(sol.solarCalculations.uvIndexOverThree) + " minutes";
+    document.getElementById("demo8").innerHTML = "UVI warning period end = " + timeHour(sol.solarCalculations.uvIndexEnd) + ":" + timeMinute(sol.solarCalculations.uvIndexEnd);
     document.getElementById("demo9").innerHTML = "UVI max annual = " + sol.solarCalculations.uvIndexMaxAnnual;
 
     //Auringon säteilytrehoon liittyvät tulosteet

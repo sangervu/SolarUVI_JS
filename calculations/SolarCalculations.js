@@ -10,7 +10,7 @@ function calculations(pos) {
     var maxSunElevationAnnual;
     var epsilon = toDegrees(pos.solarPositionTrue.epsilon);
 
-    if (locations.latitude < epsilon || locations.latitude > -epsilon) {
+    if (locations.latitude < epsilon && locations.latitude > -epsilon) {
         maxSunElevationAnnual = toRadians(90.);
     } else if (locations.latitude > epsilon) {
         maxSunElevationAnnual = toRadians(90. - locations.latitude + epsilon);
@@ -34,7 +34,7 @@ function calculations(pos) {
 
     var uvIndexMax = Math.round(10 * Math.pow(Math.cos(Math.PI / 2 - maxSunElevation), a) * Math.exp(b + c * mMax + d * mMax * mMax) / 25.) / 10.;
     var uvIndexMaxAnnual = Math.round(10 * Math.pow(Math.cos(Math.PI / 2 - maxSunElevationAnnual), a) * Math.exp(b + c * mMaxAnnual + d * mMaxAnnual * mMaxAnnual) / 25.) / 10.;
-    var uvIndexOverThree = 2 * Math.acos(-Math.tan(delta) * Math.tan(latitude) + Math.sin(uvIndexLimit) / (Math.cos(delta) * Math.cos(latitude))) / (2 * Math.PI) * 24.;
+    var uvIndexOverThree = Math.round(10 * 2 * Math.acos(-Math.tan(delta) * Math.tan(latitude) + Math.sin(uvIndexLimit) / (Math.cos(delta) * Math.cos(latitude))) / (2 * Math.PI) * 24.) / 10.;
     if (isNaN(uvIndexOverThree)) {
         uvIndexOverThree = 0;
     }
