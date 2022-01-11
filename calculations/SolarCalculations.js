@@ -10,7 +10,7 @@ function calculations(pos) {
     var maxSunElevationAnnual;
     var epsilon = toDegrees(pos.solarPositionTrue.epsilon);
 
-    if (locations.latitude < epsilon && locations.latitude > -epsilon) {
+    if (locations.latitude < epsilon || locations.latitude > -epsilon) {
         maxSunElevationAnnual = toRadians(90.);
     } else if (locations.latitude > epsilon) {
         maxSunElevationAnnual = toRadians(90. - locations.latitude + epsilon);
@@ -42,7 +42,7 @@ function calculations(pos) {
         var uvIndexEnd = 0;
     }
     else {
-        var uvIndexEnd = timeSunSouth + uvIndexOverThree / 2;
+        var uvIndexEnd = pos.solarPositionLocal.timeSunSouth + uvIndexOverThree / 2;
     }
 
     /******** Solar power calculation**********/
