@@ -58,7 +58,7 @@ function calculations(pos) {
 
     // Maximun solar power per current day
     var solarPowerMax = Math.round(10 * 1350.0 * Math.sin(maxSunElevation) * Math.pow(0.78, (1 / Math.sin(maxSunElevation)))) / 10;
-    if (solarPowerMax < 0) {
+    if (solarPowerMax < 0 || isNaN(solarPowerMax)) {
         solarPowerMax = 0;
     }
 

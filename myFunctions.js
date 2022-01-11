@@ -10,7 +10,7 @@ function myFunctions() {
 
     //Auringon paikkaan liittyvät tulosteet
     document.getElementById("demo1").innerHTML = "current sun elevation = " + pos.solarPositionLocal.currentSunElevation;
-    document.getElementById("demo2").innerHTML = "max sun elevation = " + pos.solarPositionLocal.maxSunElevation;
+    document.getElementById("demo2").innerHTML = "max sun elevation (true) = " + pos.solarPositionLocal.maxSunElevation;
     document.getElementById("demo3").innerHTML = "current sun azimuth = " + pos.solarPositionLocal.currentSunAzimuth;
     document.getElementById("demo4").innerHTML = "current sun azimuth = " + NorthSouthEastWest(pos.solarPositionLocal.currentSunAzimuth);
 
@@ -35,5 +35,5 @@ function myFunctions() {
     document.getElementById("demo16").innerHTML = "sun set civil = " + timeHour(pos.solarPositionLocal.timeSetCivil) + ":" + timeMinute(pos.solarPositionLocal.timeSetCivil);
     document.getElementById("demo17").innerHTML = "sun set nautical = " + timeHour(pos.solarPositionLocal.timeSetNautical) + ":" + timeMinute(pos.solarPositionLocal.timeSetNautical);
     document.getElementById("demo18").innerHTML = "sun set astronomical = " + timeHour(pos.solarPositionLocal.timeSetAstronomical) + ":" + timeMinute(pos.solarPositionLocal.timeSetAstronomical);
-    document.getElementById("demo19").innerHTML = "latitude of polar night (north) = " + sol.solarCalculations.uvIndexMaxAnnual;
+    document.getElementById("demo19").innerHTML = "latitude of polar night (north) = " + pos.solarPositionLocal.latitudePolarNight;
 }

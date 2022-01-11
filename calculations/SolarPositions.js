@@ -56,7 +56,10 @@ function positions() {
         maxSunElevation: Math.round(10 * trueElevation(90.0 + toDegrees(delta) - toDegrees(latitude))) / 10,
         //korkeimmillaan, eli etelässä
         timeSunSouth: minDegree(toDegrees(alfa) - stellarTimeDeg.noon) * 24. / 360.,
+        //kaamoksen leveyspiiri
+        latitudePolarNight: Math.round(10 * (90.0 + toDegrees(delta))) / 10.
     }
+
     //Auringon nousu
     solarPositionLocal.timeRize = minHour(solarPositionLocal.timeSunSouth - toDegrees(Math.acos(Math.sin(horizon) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
     //Auringon lasku
