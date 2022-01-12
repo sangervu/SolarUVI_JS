@@ -1,5 +1,6 @@
 
 function calculations(pos) {
+    
     //double uvIndexOverTwoRad = Math.toRadians(90.0 - 55.0); //degrees in Sun elevation, UV
     var a = 2.696056;
     var b = 5.474571;

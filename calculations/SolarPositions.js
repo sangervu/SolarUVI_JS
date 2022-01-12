@@ -72,4 +72,5 @@ function positions() {
     solarPositionLocal.timeSetAstronomical = minHour(solarPositionLocal.timeSunSouth + toDegrees(Math.acos(Math.sin(night) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
 
     this.solarPositionLocal = solarPositionLocal;
+
 }
