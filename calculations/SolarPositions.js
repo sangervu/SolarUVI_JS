@@ -17,12 +17,17 @@ function positions() {
     let solarPositionTrue = {
         epsilon: toRadians(23 + 26. / 60. + 21.448 / 3600 - 46.815 / 3600 * T - 0.00059 / 3600 * T * T + 0.001813 * T * T * T),
         Lo: toRadians(minDegree(Lo)),
-        M: toRadians(minDegree(M))
+        M: toRadians(minDegree(M)),
+        get C() {
+            return toRadians((1.914602 - 0.004817 * T - 0.000014 * T * T) * Math.sin(this.M) + (0.019993 - 0.000101 * T) * Math.sin(2 * this.M) + 0.000289 * Math.sin(3 * this.M));
+        },
+        get x() {
+            return Math.cos(this.Lo + this.C);
+        },
+        get y() {
+            return Math.cos(this.epsilon) * Math.sin(this.Lo + this.C);
+        }
     }
-    solarPositionTrue.C = toRadians((1.914602 - 0.004817 * T - 0.000014 * T * T) * Math.sin(solarPositionTrue.M) + (0.019993 - 0.000101 * T) * Math.sin(2 * solarPositionTrue.M) + 0.000289 * Math.sin(3 * solarPositionTrue.M));
-    solarPositionTrue.x = Math.cos(solarPositionTrue.Lo + solarPositionTrue.C);
-    solarPositionTrue.y = Math.cos(solarPositionTrue.epsilon) * Math.sin(solarPositionTrue.Lo + solarPositionTrue.C);
-
     this.solarPositionTrue = solarPositionTrue;
 
     let solarPositionDeg = {
@@ -31,7 +36,6 @@ function positions() {
         alfa: trueTan(solarPositionTrue.y, solarPositionTrue.x),
         delta: toDegrees(Math.asin(Math.sin(solarPositionTrue.epsilon) * Math.sin(solarPositionTrue.Lo + solarPositionTrue.C)))
     }
-
     this.solarPositionDeg = solarPositionDeg;
 
     var alfa = toRadians(solarPositionDeg.alfa);
