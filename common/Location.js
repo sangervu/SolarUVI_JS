@@ -22,6 +22,7 @@ function showPosition(position) {
   const mapLink = document.querySelector('#map-link');
   locations.setLatitude(position.coords.latitude);
   locations.setLongitude(position.coords.longitude);
+  myFunctions();
   document.getElementById("demo20").innerHTML = "Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude;
   mapLink.href = `https://www.openstreetmap.org/#map=18/${locations.latitude}/${locations.longitude}`;
