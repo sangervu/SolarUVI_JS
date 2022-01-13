@@ -2,10 +2,10 @@
 function calculations(pos) {
     
     //double uvIndexOverTwoRad = Math.toRadians(90.0 - 55.0); //degrees in Sun elevation, UV
-    let a = 2.696056;
-    let b = 5.474571;
-    let c = -0.09888;
-    let d = 0.040392;
+    const a = 2.696056;
+    const b = 5.474571;
+    const c = -0.09888;
+    const d = 0.040392;
     let currentSunElevation = toRadians(pos.solarPositionLocal.currentSunElevation);
     let maxSunElevation = toRadians(pos.solarPositionLocal.maxSunElevation);
     let maxSunElevationAnnual;
