@@ -61,20 +61,41 @@ function positions() {
         //korkeimmillaan, eli etelässä
         timeSunSouth: minDegree(toDegrees(alfa) - stellarTimeDeg.noon) * 24. / 360.,
         //kaamoksen leveyspiiri
-        latitudePolarNight: Math.round(10 * (90.0 + toDegrees(delta))) / 10.
+        latitudePolarNight: Math.round(10 * (90.0 + toDegrees(delta))) / 10.,
+
+        //Auringon nousu
+        get timeRize() {
+            return minHour(this.timeSunSouth - toDegrees(Math.acos(Math.sin(horizon) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        },
+        //Auringon lasku
+        get timeSet() {
+            return minHour(this.timeSunSouth + toDegrees(Math.acos(Math.sin(horizon) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        },
+        //Set time for visible lumination
+        get timeSetCivil() {
+            return minHour(this.timeSunSouth + toDegrees(Math.acos(Math.sin(visible) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        },
+        //Set time for nocturnal lumination
+        get timeSetNautical() {
+            return minHour(this.timeSunSouth + toDegrees(Math.acos(Math.sin(nocturnal) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        },
+        //Set time for total darkness
+        get timeSetAstronomical() {
+            return minHour(this.timeSunSouth + toDegrees(Math.acos(Math.sin(night) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        },
+         //Set time for visible lumination
+         get timeRizeCivil() {
+            return minHour(this.timeSunSouth - toDegrees(Math.acos(Math.sin(visible) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        },
+        //Set time for nocturnal lumination
+        get timeRizeNautical() {
+            return minHour(this.timeSunSouth - toDegrees(Math.acos(Math.sin(nocturnal) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        },
+        //Set time for total darkness
+        get timeRizeAstronomical() {
+            return minHour(this.timeSunSouth - toDegrees(Math.acos(Math.sin(night) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        }
     }
-
-    //Auringon nousu
-    solarPositionLocal.timeRize = minHour(solarPositionLocal.timeSunSouth - toDegrees(Math.acos(Math.sin(horizon) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
-    //Auringon lasku
-    solarPositionLocal.timeSet = minHour(solarPositionLocal.timeSunSouth + toDegrees(Math.acos(Math.sin(horizon) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
-    //Set time for visible lumination
-    solarPositionLocal.timeSetCivil = minHour(solarPositionLocal.timeSunSouth + toDegrees(Math.acos(Math.sin(visible) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
-    //Set time for nocturnal lumination
-    solarPositionLocal.timeSetNautical = minHour(solarPositionLocal.timeSunSouth + toDegrees(Math.acos(Math.sin(nocturnal) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
-    //Set time for total darkness
-    solarPositionLocal.timeSetAstronomical = minHour(solarPositionLocal.timeSunSouth + toDegrees(Math.acos(Math.sin(night) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
-
     this.solarPositionLocal = solarPositionLocal;
 
 }

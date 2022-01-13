@@ -35,5 +35,8 @@ function myFunctions() {
     document.getElementById("demo16").innerHTML = "sun set civil = " + timeHour(pos.solarPositionLocal.timeSetCivil) + ":" + timeMinute(pos.solarPositionLocal.timeSetCivil);
     document.getElementById("demo17").innerHTML = "sun set nautical = " + timeHour(pos.solarPositionLocal.timeSetNautical) + ":" + timeMinute(pos.solarPositionLocal.timeSetNautical);
     document.getElementById("demo18").innerHTML = "sun set astronomical = " + timeHour(pos.solarPositionLocal.timeSetAstronomical) + ":" + timeMinute(pos.solarPositionLocal.timeSetAstronomical);
-    document.getElementById("demo19").innerHTML = "latitude of polar night (north) = " + pos.solarPositionLocal.latitudePolarNight;
+    document.getElementById("demo19").innerHTML = "sun rize civil = " + timeHour(pos.solarPositionLocal.timeRizeCivil) + ":" + timeMinute(pos.solarPositionLocal.timeRizeCivil);
+    document.getElementById("demo20").innerHTML = "sun rize nautical = " + timeHour(pos.solarPositionLocal.timeRizeNautical) + ":" + timeMinute(pos.solarPositionLocal.timeRizeNautical);
+    document.getElementById("demo21").innerHTML = "sun rize astronomical = " + timeHour(pos.solarPositionLocal.timeRizeAstronomical) + ":" + timeMinute(pos.solarPositionLocal.timeRizeAstronomical);
+    document.getElementById("demo22").innerHTML = "latitude of polar night (north) = " + pos.solarPositionLocal.latitudePolarNight;
 }
