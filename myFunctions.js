@@ -21,8 +21,6 @@ function myFunctions() {
     document.getElementById("demo8").innerHTML = "UVI warning period end = " + timeHour(sol.solarCalculations.uvIndexEnd) + ":" + timeMinute(sol.solarCalculations.uvIndexEnd);
     document.getElementById("demo9").innerHTML = "UVI max annual = " + sol.solarCalculations.uvIndexMaxAnnual;
 
-
-
     //Auringon säteilytrehoon liittyvät tulosteet
     document.getElementById("demo10").innerHTML = "current solar power W/m2 = " + sol.solarCalculations.solarPower;
     document.getElementById("demo11").innerHTML = "max solar power (daily) W/m2 = " + sol.solarCalculations.solarPowerMax;
