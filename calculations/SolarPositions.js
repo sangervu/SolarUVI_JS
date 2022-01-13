@@ -4,17 +4,21 @@ function positions() {
 
     let T = stellarCalendar.T;
     let stellarTimeDeg = {
-        time: minDegree((24110.54841 + 8640184.812866 * T + 0.093104 * (T * T) - 0.0000062 * (T * T * T)) / 3600. * 15.)
+        time: minDegree((24110.54841 + 8640184.812866 * T + 0.093104 * (T * T) - 0.0000062 * (T * T * T)) / 3600. * 15.),
+        get noon() {
+            return minDegree(stellarTimeDeg.time + 1.002737908 * (stellarCalendar.timeZone) * 15. + locations.longitude);
+        },
+        get local() {
+            return minDegree(stellarTimeDeg.noon + (1.002737908 * (stellarCalendar.hour + stellarCalendar.minute / 60.) * 15.));
+        }
     }
-    stellarTimeDeg.noon = minDegree(stellarTimeDeg.time + 1.002737908 * (stellarCalendar.timeZone) * 15. + locations.longitude);
-    stellarTimeDeg.local = minDegree(stellarTimeDeg.noon + (1.002737908 * (stellarCalendar.hour + stellarCalendar.minute / 60.) * 15.))
 
     //alustetaan maan epsilon ja auringon x, y, z koordinaatit
 
-    const Lo = 280.46646 + 36000.76983 * T + 0.0003032 * T * T;
-    const M = 357.52911 + 35999.05029 * T - 0.0001537 * T * T;
+    let Lo = 280.46646 + 36000.76983 * T + 0.0003032 * T * T;
+    let M = 357.52911 + 35999.05029 * T - 0.0001537 * T * T;
 
-    let solarPositionTrue = {
+    const solarPositionTrue = {
         epsilon: toRadians(23 + 26. / 60. + 21.448 / 3600 - 46.815 / 3600 * T - 0.00059 / 3600 * T * T + 0.001813 * T * T * T),
         Lo: toRadians(minDegree(Lo)),
         M: toRadians(minDegree(M)),
@@ -30,7 +34,7 @@ function positions() {
     }
     this.solarPositionTrue = solarPositionTrue;
 
-    let solarPositionDeg = {
+    const solarPositionDeg = {
         //Ohessa olevilla laskukaavoilla lasketaan auringon paikka taivaalla syötetyillä parametrin arvoilla. Lasku toimii kaikkialla maapallolla.
         // "alfa" ja "delta" ilmoittavat auringon paikan taivaalla asteina 
         alfa: trueTan(solarPositionTrue.y, solarPositionTrue.x),
@@ -54,7 +58,7 @@ function positions() {
     let nocturnal = toRadians(-12.); // Auringon lasku "nauttinen hämärä"
     let night = toRadians(-18.); // Auringonlasku astronominen hämärä (täydellinen pimeys)
 
-    let solarPositionLocal = {
+    const solarPositionLocal = {
         currentSunAzimuth: Math.round(10 * minDegree(trueTan(solarPositionAzimuth.Ay, solarPositionAzimuth.Ax) + 180.)) / 10,
         currentSunElevation: Math.round(10 * toDegrees(Math.asin(Math.sin(delta) * Math.sin(latitude) + Math.cos(hourAzimuth) * Math.cos(delta) * Math.cos(latitude)))) / 10,
         maxSunElevation: Math.round(10 * trueElevation(90.0 + toDegrees(delta) - toDegrees(latitude))) / 10,
@@ -83,8 +87,8 @@ function positions() {
         get timeSetAstronomical() {
             return minHour(this.timeSunSouth + toDegrees(Math.acos(Math.sin(night) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
         },
-         //Set time for visible lumination
-         get timeRizeCivil() {
+        //Set time for visible lumination
+        get timeRizeCivil() {
             return minHour(this.timeSunSouth - toDegrees(Math.acos(Math.sin(visible) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
         },
         //Set time for nocturnal lumination

@@ -67,7 +67,7 @@ function calculations(pos) {
     // Maximun solar power per year
     let solarPowerMaxAnnual = Math.round(10 * 1350.0 * Math.sin(maxSunElevationAnnual) * Math.pow(0.78, (1 / Math.sin(maxSunElevationAnnual)))) / 10.;
 
-    let solarCalculations = {
+    const solarCalculations = {
         uvIndex: uvIndex,
         uvIndexMax: uvIndexMax,
         uvIndexOverThree: uvIndexOverThree,
