@@ -2,7 +2,7 @@
 
 function positions() {
 
-    var T = stellarCalendar.T;
+    let T = stellarCalendar.T;
     let stellarTimeDeg = {
         time: minDegree((24110.54841 + 8640184.812866 * T + 0.093104 * (T * T) - 0.0000062 * (T * T * T)) / 3600. * 15.)
     }
@@ -38,21 +38,21 @@ function positions() {
     }
     this.solarPositionDeg = solarPositionDeg;
 
-    var alfa = toRadians(solarPositionDeg.alfa);
-    var delta = toRadians(solarPositionDeg.delta);
-    var latitude = toRadians(locations.latitude);
+    let alfa = toRadians(solarPositionDeg.alfa);
+    let delta = toRadians(solarPositionDeg.delta);
+    let latitude = toRadians(locations.latitude);
 
-    var hourAzimuth = toRadians(stellarTimeDeg.local - solarPositionDeg.alfa);
+    let hourAzimuth = toRadians(stellarTimeDeg.local - solarPositionDeg.alfa);
     let solarPositionAzimuth = {
         //atsimuutti x ja y komponentit
         Ay: Math.sin(hourAzimuth) * Math.cos(delta),
         Ax: Math.cos(hourAzimuth) * Math.cos(delta) * Math.sin(latitude) - Math.sin(delta) * Math.cos(latitude)
     }
 
-    var horizon = toRadians(-0.83); // Aurinko laskee horisonttiin
-    var visible = toRadians(-6.); // Auringon lasku "porvarillinen hämärä"
-    var nocturnal = toRadians(-12.); // Auringon lasku "nauttinen hämärä"
-    var night = toRadians(-18.); // Auringonlasku astronominen hämärä (täydellinen pimeys)
+    let horizon = toRadians(-0.83); // Aurinko laskee horisonttiin
+    let visible = toRadians(-6.); // Auringon lasku "porvarillinen hämärä"
+    let nocturnal = toRadians(-12.); // Auringon lasku "nauttinen hämärä"
+    let night = toRadians(-18.); // Auringonlasku astronominen hämärä (täydellinen pimeys)
 
     let solarPositionLocal = {
         currentSunAzimuth: Math.round(10 * minDegree(trueTan(solarPositionAzimuth.Ay, solarPositionAzimuth.Ax) + 180.)) / 10,

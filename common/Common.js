@@ -95,18 +95,18 @@ function minHour(hour) {
 
 function toRadians(degree) {
 
-    var radian = degree * Math.PI / 180;
+    let radian = degree * Math.PI / 180;
     return radian;
 }
 
 function toDegrees(radians) {
 
-    var degrees = radians * 180 / Math.PI;
+    let degrees = radians * 180 / Math.PI;
     return degrees;
 }
 
 function trueTan(y, x) {
-    var alfa = Math.atan(y / x) * 180 / (Math.PI);
+    let alfa = Math.atan(y / x) * 180 / (Math.PI);
     //if (y >= 0 & x > 0)
     //alfa = y/x;
     if (y >= 0 && x < 0)
