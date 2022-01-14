@@ -14,7 +14,7 @@ const getLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    document.getElementById("demo20").innerHTML = "Geolocation is not supported by this browser.";
+    document.getElementById("demo24").innerHTML = "Geolocation is not supported by this browser.";
   }
 };
 
