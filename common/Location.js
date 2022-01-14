@@ -23,7 +23,7 @@ function showPosition(position) {
   locations.setLatitude(position.coords.latitude);
   locations.setLongitude(position.coords.longitude);
   myFunctions();
-  document.getElementById("demo20").innerHTML = "Latitude: " + position.coords.latitude +
+  document.getElementById("demo24").innerHTML = "Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude;
   mapLink.href = `https://www.openstreetmap.org/#map=18/${locations.latitude}/${locations.longitude}`;
   mapLink.textContent = `Latitude: ${locations.latitude} °, Longitude: ${locations.longitude} °`;
@@ -39,7 +39,7 @@ function newLocation() {
   locations.setLongitude(y);
   myFunctions();
 
-  document.getElementById("demo20").innerHTML = "Latitude: " + x +
+  document.getElementById("demo24").innerHTML = "Latitude: " + x +
     "<br>Longitude: " + y;
 
   mapLink.href = `https://www.openstreetmap.org/#map=18/${locations.latitude}/${locations.longitude}`;
