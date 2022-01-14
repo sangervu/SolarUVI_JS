@@ -20,6 +20,7 @@ function myFunctions() {
     document.getElementById("demo7").innerHTML = "UVI warning period length (UVI > 3) = " + timeHour(sol.solarCalculations.uvIndexOverThree) + " hours " + timeMinute(sol.solarCalculations.uvIndexOverThree) + " minutes";
     document.getElementById("demo8").innerHTML = "UVI warning period end = " + timeHour(sol.solarCalculations.uvIndexEnd) + ":" + timeMinute(sol.solarCalculations.uvIndexEnd);
     document.getElementById("demo9").innerHTML = "UVI max annual = " + sol.solarCalculations.uvIndexMaxAnnual;
+    document.getElementById("uviWarning").innerHTML = UviWarning(sol.solarCalculations.uvIndex);
 
     //Auringon säteilytrehoon liittyvät tulosteet
     document.getElementById("demo10").innerHTML = "current solar power W/m2 = " + sol.solarCalculations.solarPower;
