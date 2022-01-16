@@ -1,15 +1,15 @@
 //alustetaan solaarinen aika-objekti pituuspiirin mukaan (asteet)
 
-function positions() {
+function positions(cal) {
 
-    let T = stellarCalendar.T;
+    let T = cal.stellarCalendar.T;
     let stellarTimeDeg = {
         time: minDegree((24110.54841 + 8640184.812866 * T + 0.093104 * (T * T) - 0.0000062 * (T * T * T)) / 3600. * 15.),
         get noon() {
-            return minDegree(this.time + 1.002737908 * (stellarCalendar.timeZone) * 15. + locations.longitude);
+            return minDegree(this.time + 1.002737908 * (cal.stellarCalendar.timeZone) * 15. + locations.longitude);
         },
         get local() {
-            return minDegree(this.noon + (1.002737908 * (stellarCalendar.hour + stellarCalendar.minute / 60.) * 15.));
+            return minDegree(this.noon + (1.002737908 * (cal.stellarCalendar.hour + cal.stellarCalendar.minute / 60.) * 15.));
         }
     }
 

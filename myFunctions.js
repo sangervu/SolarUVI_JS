@@ -1,11 +1,11 @@
 function myFunctions() {
 
     // tämä funktio käynnistää ohjelman (html pääsivulla on onload="myFunctions()" event handler
-    setDate();
+    let cal = new calendar();
     document.querySelector('#find-me').addEventListener('click', getLocation);
     document.querySelector('#new-location').addEventListener('click', newLocation);
 
-    let pos = new positions();
+    let pos = new positions(cal);
     let sol = new calculations(pos);
 
     //Auringon paikkaan liittyvät tulosteet

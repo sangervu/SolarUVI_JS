@@ -36,7 +36,7 @@ UviWarning = uvIndex => {
     }
 }
 
-function SetUviWarnings(text, color, fontColor) {
+SetUviWarnings = (text, color, fontColor) => {
     document.getElementById("uviWarning").style.backgroundColor = color;
     document.getElementById("uviWarning").value = text;
     document.getElementById("uviWarning").style.color = fontColor;
