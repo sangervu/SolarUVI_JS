@@ -1,7 +1,7 @@
 function myFunctions() {
 
     // tämä funktio käynnistää ohjelman (html pääsivulla on onload="myFunctions()" event handler
-
+    setDate();
     document.querySelector('#find-me').addEventListener('click', getLocation);
     document.querySelector('#new-location').addEventListener('click', newLocation);
 
