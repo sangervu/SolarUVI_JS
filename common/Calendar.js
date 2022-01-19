@@ -55,9 +55,9 @@ function setDate() {
 function newDate() {
 
     var cal = document.getElementById("cal").value;
-    stellarCalendar.setYear(cal.getFullYear());
-    stellarCalendar.setMonth(cal.getMonth());
-    stellarCalendar.setDate(cal.getDate());
+    stellarCalendar.setYear(parseInt(cal.substr(0,4)));
+    stellarCalendar.setMonth(parseInt(cal.substr(5,2)));
+    stellarCalendar.setDate(parseInt(cal.substr(8,2)));
 
     myFunctions();
 }
