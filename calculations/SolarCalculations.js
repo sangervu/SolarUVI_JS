@@ -77,7 +77,5 @@ function calculations(pos) {
         solarPowerMax: solarPowerMax,
         solarPowerMaxAnnual: solarPowerMaxAnnual
     }
-
     this.solarCalculations = solarCalculations;
-
 }
