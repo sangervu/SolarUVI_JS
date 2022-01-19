@@ -1,8 +1,10 @@
 function myFunctions() {
 
     // tämä funktio käynnistää ohjelman (html pääsivulla on onload="myFunctions()" event handler
+    
     document.querySelector('#find-me').addEventListener('click', getLocation);
     document.querySelector('#new-location').addEventListener('click', newLocation);
+    document.querySelector('#get-date').addEventListener('click', newDate);
 
     setDate();
     let pos = new positions();
