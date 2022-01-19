@@ -1,6 +1,4 @@
 // alustetaan stellarCalendar -objekti pvm (pvm voi myös antaa käsin)
-function calendar() {
-
     const cal = new Date()
 
     let stellarCalendar = {
@@ -47,13 +45,10 @@ function calendar() {
             return this.year + "-12-31";
         }
     }
-
-    setDate = () => {
+    function setDate() {
         var x = document.getElementById("start");
         x.setAttribute("value", stellarCalendar.currentDate);
         x.setAttribute("min", stellarCalendar.startDate);
         x.setAttribute("max", stellarCalendar.endDate);
     }
-
     this.stellarCalendar = stellarCalendar;
-}
