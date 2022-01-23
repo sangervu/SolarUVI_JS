@@ -41,4 +41,5 @@ function myFunctions() {
     document.getElementById("demo21").innerHTML = "sun rize nautical = " + timeHour(pos.solarPositionLocal.timeRizeNautical) + ":" + timeMinute(pos.solarPositionLocal.timeRizeNautical);
     document.getElementById("demo22").innerHTML = "sun rize astronomical = " + timeHour(pos.solarPositionLocal.timeRizeAstronomical) + ":" + timeMinute(pos.solarPositionLocal.timeRizeAstronomical);
     document.getElementById("demo23").innerHTML = "latitude of polar night (north) = " + pos.solarPositionLocal.latitudePolarNight;
+    document.getElementById("demo24").innerHTML = "length of day = " + timeHour(pos.solarPositionLocal.dayLength)  + " hours " + timeMinute(pos.solarPositionLocal.dayLength) + " minutes";
 }

@@ -98,6 +98,10 @@ function positions() {
         //Set time for total darkness
         get timeRizeAstronomical() {
             return minHour(this.timeSunSouth - toDegrees(Math.acos(Math.sin(night) / (Math.cos(delta) * Math.cos(latitude)) - Math.tan(delta) * Math.tan(latitude))) * 24. / 360.);
+        },
+        //Lenth of day
+        get dayLength() {
+            return this.timeSet - this.timeRize;
         }
     }
     this.solarPositionLocal = solarPositionLocal;
