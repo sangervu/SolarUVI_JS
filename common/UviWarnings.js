@@ -34,10 +34,18 @@ UviWarning = uvIndex => {
     if (uvIndex >= 0 && uvIndex < 1.0) {
         SetUviWarnings("Ei vaaraa UV säteilystä", "rgb(190,190,190)", "Blue");
     }
+    return uviWarning;
 }
 
 SetUviWarnings = (text, color, fontColor) => {
     document.getElementById("uviWarning").style.backgroundColor = color;
     document.getElementById("uviWarning").value = text;
     document.getElementById("uviWarning").style.color = fontColor;
+
+    const uviWarning = {
+        backgroundColor: color,
+        value: text,
+        color: fontColor
+    }
+    this.uviWarning = uviWarning;
 }
