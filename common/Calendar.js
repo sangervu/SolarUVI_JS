@@ -36,7 +36,7 @@ let stellarCalendar = {
         return (this.julian - 0.5 + this.hour / 24. + this.minute / 1440. - 2451545.) * 0.000027378507871321;
     },
     get currentDate() {
-        return this.year + "-0" + this.month + "-" + this.date;
+        return this.year + "-0" + this.month + "-0" + this.date;
     },
     get startDate() {
         return this.year + "-01-01";
