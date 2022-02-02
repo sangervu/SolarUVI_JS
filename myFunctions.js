@@ -42,11 +42,7 @@ function myFunctions() {
     document.getElementById("demo22").innerHTML = "sun rize astronomical = " + timeHour(pos.solarPositionLocal.timeRizeAstronomical) + ":" + timeMinute(pos.solarPositionLocal.timeRizeAstronomical);
     document.getElementById("demo23").innerHTML = "latitude of polar night (north) = " + pos.solarPositionLocal.latitudePolarNight;
     document.getElementById("demo24").innerHTML = "length of day = " + timeHour(pos.solarPositionLocal.dayLength)  + " hours " + timeMinute(pos.solarPositionLocal.dayLength) + " minutes";
-<<<<<<< HEAD
-
-=======
     
->>>>>>> d35b78f1fd250ee5469221b551cf26c1d9e304f2
     const myResults = {
         currentSunElevation: pos.solarPositionLocal.currentSunElevation,
         maxSunElevation: pos.solarPositionLocal.maxSunElevation,

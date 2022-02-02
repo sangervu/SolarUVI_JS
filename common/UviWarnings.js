@@ -48,9 +48,4 @@ SetUviWarnings = (text, color, fontColor) => {
         color: fontColor
     }
     this.uviWarning = uviWarning;
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> d35b78f1fd250ee5469221b551cf26c1d9e304f2
